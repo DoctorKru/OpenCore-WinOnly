@@ -4,4 +4,4 @@ No MacOS tweaks, no dual boot.
 The purpose is to boot Windows on top of Opencore to tweak maimboard firmware on modern HP/Dell laptops and apply some custom ACPI overrides
 Based on:
 https://github.com/acidanthera/OpenCorePkg 
-[https://github.com/acidanthera/OpenCorePkg/releases/download/1.0.7/OpenCore-1.0.7-RELEASE.zip](https://github.com/acidanthera/OpenCorePkg/releases/tag/1.0.7)
+https://github.com/acidanthera/OpenCorePkg/releases/tag/1.0.7
