@@ -25,4 +25,6 @@ Notes:
 
 Injection OpenCore to your SSD primary EFI partition is not so straightforward. HP firmware sometimes recreates default boot paths if you occasionally entered HP BIOS settings, even without saving changes or just opened F9 boot menu. The "3 reboots" effect can occure: at 1st boot you get pure Windows, at 2d boot you get Windows via Opencore and 3d boot additionally creates HP "Windows" entry in OC picker which you should ignore and press Down key to choose Win via OC setup. The same problem can occure on very cold boot. Use Space → Clear NVram in OC picker when needed.
 
+config_SSD.plist modified version for ssd injection, rename it to config.plist. In this case, you can also delete .contentFlavour and .contentVisibility from /EFI and EFI/BOOT folders.
+
 Windows via OpenCore successfully boots, but HEVC HW support still not detected. <br> It means, you need custom ACPI override. You can do it directly in OpenCore, which was developed by Hackintosh people who are experts in ACPI tables patching and have done everything possible to make the process more convenient. Dump ACPI tables directly in OpenCore, search for restriction bit with Intel ACPICA tools, compile your custom overrides and put "ready to go" .aml files in Opencore ACPI folder.
