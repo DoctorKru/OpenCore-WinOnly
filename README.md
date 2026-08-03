@@ -59,9 +59,13 @@ bcdedit /set {fwbootmgr} displayorder {bootmgr} /addfirst
 
 > [!TIP]
 > In OC picker you can clear NVRAM when needed, press ***Space → Clear NVram***.
-- Checks helping to get working configuration:
+- Useful checks, helping to get working configuration:
   ```cmd        
-    bcdedit /enum {bootmgr} - Windows Boot Manager configuration
-    bcdedit /enum firmware - Shows every UEFI entry your BIOS sees
-    bcdedit /enum {current} - Shows what Windows is running on right now.
-```
+    bcdedit /enum {bootmgr} ← Windows Boot Manager configuration
+    bcdedit /enum firmware ← Shows every UEFI entry your BIOS sees
+    bcdedit /enum {current} ← Shows what Windows is running on right now.
+  ```
+  In OC Picker menu press Space → OpenShell.efi
+  ```js        
+    Shell> bcfg dump -v ← show boot options
+  ```
