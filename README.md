@@ -4,9 +4,9 @@ No MacOS tweaks, no dual boot. The purpose is to boot Windows on top of OpenCore
 
 Based on: https://github.com/acidanthera/OpenCorePkg/releases/tag/1.0.7
 
-From Reddit: <i>"Many modern Dell and HP laptops ship with Intel GPUs that fully support HEVC (H.265) in hardware — yet Windows reports HEVC as unsupported. Installing the Microsoft HEVC codec does nothing. Drivers are current. Linux works. Windows doesn’t. This is not a driver bug. This is intentional firmware gating, implemented via ACPI tables.."</i> 
+From Reddit: *"Many modern Dell and HP laptops ship with Intel GPUs that fully support HEVC (H.265) in hardware — yet Windows reports HEVC as unsupported. Installing the Microsoft HEVC codec does nothing. Drivers are current. Linux works. Windows doesn’t. This is not a driver bug. This is intentional firmware gating, implemented via ACPI tables.."* 
 
-I found, that you can enable HEVC hardware support without ACPI table override, at least on HP laptops, thanks to: 
+I found, that **you can enable HEVC hardware support without ACPI table override, at least on HP laptops**, thanks to: 
 
 https://github.com/acidanthera/OpenCorePkg
 
@@ -22,12 +22,41 @@ Just boot Windows via OpenCore bootloader and you're good to go! OpenCore send f
 
 5. Finally check HEVC HW decoding with 4K-8K hevc video file, higher FPS also recommended. You should get smooth playback with near zero CPU load and up to 30% GPU on modern laptops. To force HW HEVC in VLC: Preferences → All, Input / Codecs → Video codecs → FFmpeg → Hardware decoding → Direct3D11
 
-6. If all OK, then you can inject Opencore to your SSD primary EFI partition to make it permanent bootloader for Windows (see Notes) or leave it on USB stick as "HEVC hardware dongle" for rare use. 
+6. No HEVC HW decoding even after successful Windows via OpenCore boot. <br> Then, you need custom ACPI override. You can do it directly in OpenCore, which was developed by Hackintosh people who are experts in ACPI tables patching and have done everything possible to make the process more convenient. Dump ACPI tables directly in OpenCore, search for restriction bit with Intel ACPICA tools, compile your custom overrides and put "ready to go" .aml files in Opencore ACPI folder. 
 
-Notes:
+7. If all OK, then you can inject Opencore to your SSD primary EFI partition to make it permanent bootloader for Windows (see Notes) or leave it on USB stick as "HEVC hardware dongle" for rare use.
 
-Injection OpenCore to your SSD primary EFI partition is not so straightforward. HP firmware sometimes recreates default boot paths if you occasionally entered HP BIOS settings, even without saving changes or just open F9 boot menu. The "3 reboots" effect can occure: at 1st boot you get pure Windows, at 2d boot you get Windows via Opencore and 3d boot additionally creates HP "Windows" entry in OC picker which you should ignore and press Down key to choose Windows via OpenCore setup. The same problem can occure on very cold boot. Use Space → Clear NVram in OC picker when needed.
+### Injection OpenCore to your SSD primary EFI partition:
+- To be safe, backup EFI partition with Acronis or similar program
+- Mount EFI partition of your main SSD in Windows. Run CMD as Admin:
+```cmd        
+diskpart
+    list disk
+    select disk 0   ← usually your main SSD
+    list vol
+    select vol 3 ← the 100-500MB FAT32 volume labeled "System" or "EFI"
+    assign letter=Z
+    exit
+```
+ or single command line, if you know disk and vol numbers:
+```cmd        
+(echo select disk 0 && echo select volume 3 && echo assign letter=Z) | diskpart
+```
+- Run file manager as Admin (Total Commander etc.) to edit EFI partition content
+- Put BOOTx64.efi from OpenCore-WinOnly/EFI/BOOT to your SSD../EFI/BOOT. If any BOOTx64.efi already exists in SSD../EFI/BOOT rename it.
+- Put OC folder from OpenCore-WinOnly/EFI to your SSD../EFI
+- Rename config_SSD.plist to config.plist in OC folder. You can also delete .contentFlavour and .contentVisibility from /EFI and EFI/BOOT.
+- Setup Boot Manager in Windows. Run CMD as Admin:
+```cmd        
+bcdedit /set {bootmgr} path \EFI\BOOT\BOOTx64.efi
+```
+```cmd        
+bcdedit /set {fwbootmgr} displayorder {bootmgr} /addfirst
+```
+- Reboot. See Notes:
+> [!NOTE]
+> The "3 reboots" effect can occure: at 1st boot you get pure Windows, at 2d boot you get Windows via Opencore and 3d boot additionally creates HP "Windows" entry in OC picker which you should ignore and press Down key to choose Windows via OpenCore setup. The same problem can occure on very cold boot. HP firmware sometimes recreates default boot paths if you occasionally entered HP BIOS settings, even without saving changes or just open F9 boot menu. Use Space → Clear NVram in OC picker when needed.
 
-config_SSD.plist - modified version for SSD injection, rename it to config.plist. In this case, you can also delete .contentFlavour and .contentVisibility from /EFI and EFI/BOOT folders.
 
-No HEVC HW decoding even after successful Windows via OpenCore boot. <br> Then, you need custom ACPI override. You can do it directly in OpenCore, which was developed by Hackintosh people who are experts in ACPI tables patching and have done everything possible to make the process more convenient. Dump ACPI tables directly in OpenCore, search for restriction bit with Intel ACPICA tools, compile your custom overrides and put "ready to go" .aml files in Opencore ACPI folder.
+
+
