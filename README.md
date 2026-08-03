@@ -24,7 +24,7 @@ Just boot Windows via OpenCore bootloader and you're good to go! OpenCore send f
 
 6. No HEVC HW decoding even after successful Windows via OpenCore boot. <br> Then, you need custom ACPI override. You can do it directly in OpenCore, which was developed by Hackintosh people who are experts in ACPI tables patching and have done everything possible to make the process more convenient. Dump ACPI tables directly in OpenCore, search for restriction bit with Intel ACPICA tools, compile your custom overrides and put "ready to go" .aml files in Opencore ACPI folder. 
 
-7. If all OK, then you can inject Opencore to your SSD primary EFI partition to make it permanent bootloader for Windows (see Notes) or leave it on USB stick as "HEVC hardware dongle" for rare use.
+7. If all OK, then you can inject Opencore to your SSD primary EFI partition to make it permanent bootloader for Windows or leave it on USB stick as "HEVC hardware dongle" for rare use.
 
 ### Injection OpenCore to your SSD primary EFI partition:
 - To be safe, backup EFI partition with Acronis or similar program
