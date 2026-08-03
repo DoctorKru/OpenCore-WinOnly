@@ -16,7 +16,7 @@ Just boot Windows via OpenCore bootloader and you're good to go! OpenCore send f
 
 2. At first, put EFI folder to bootable USB stick (use Rufus etc.) and boot PC from USB (be sure, you do not have any acpitabl.dat in Windows\System32\ and hiberfil.sys in the root).
 
-3. In Windows run Msinfo32 and check strings in System Summary: System Manufacturer, Model, Baseboard Manufacturer, Bios Version etc. - they should show something like "Acidanthera", "iMac19,1" etc. The same check you can do by CPU-Z -> Mainboard tab. The lack of any HP indication means, that you have successfully booted Windows via OpenCore.
+3. Run Msinfo32 in Windows and check strings in System Summary: System Manufacturer, Model, Baseboard Manufacturer, Bios Version etc. - they should show something like "Acidanthera", "iMac19,1" etc. The same check you can do by CPU-Z -> Mainboard tab. The lack of any HP indication means, that you have successfully booted Windows via OpenCore.
 
 4. Now, check HEVC decoding capabilities, i recommend DXVA Checker https://bluesky-soft.com/en/DXVAChecker.html as it shows HEVC profiles on the first screen.
 
