@@ -58,7 +58,7 @@ bcdedit /set {fwbootmgr} displayorder {bootmgr} /addfirst
 > The "3 reboots" effect can occure: at 1st boot you get pure Windows, at 2d boot you get Windows via Opencore and 3d boot additionally creates HP "Windows" entry in OC picker which you should ignore and press Down key to load Windows + OpenCore. The same problem can occure on very cold boot. HP firmware sometimes recreates default boot paths if you occasionally entered HP BIOS settings, even without saving changes or just open F9 boot menu. 
 
 > [!TIP]
-> In OC picker you can clear NVRAM when needed, press ***Space → Clear NVram***.
+> To clear NVRAM in OC picker when needed press ***Space → Clear NVram***.
 - Useful checks, helping to get working configuration:
   ```cmd        
     bcdedit /enum {bootmgr} ← Windows Boot Manager configuration
