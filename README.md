@@ -6,7 +6,11 @@ Based on: https://github.com/acidanthera/OpenCorePkg/releases/tag/1.0.7
 
 From Reddit: <i>"Many modern Dell and HP laptops ship with Intel GPUs that fully support HEVC (H.265) in hardware — yet Windows reports HEVC as unsupported. Installing the Microsoft HEVC codec does nothing. Drivers are current. Linux works. Windows doesn’t. This is not a driver bug. This is intentional firmware gating, implemented via ACPI tables.."</i> 
 
-I found, that you can enable HEVC hardware support without ACPI table override, at least on HP laptops, thanks to: https://github.com/acidanthera/OpenCorePkg Just boot  Windows via OpenCore bootloader and you're good to go! OpenCore send fake firmware configuration to Windows and breaks the logic of HEVC resrtriction bit, which should be applied on HP hardware only. You need Secure Boot Off and Fast Startup Off, but Testsign mode not needed! The solution tested on Win10/11 on certain HP laptops. So:
+I found, that you can enable HEVC hardware support without ACPI table override, at least on HP laptops, thanks to: 
+
+https://github.com/acidanthera/OpenCorePkg
+
+Just boot Windows via OpenCore bootloader and you're good to go! OpenCore send fake firmware configuration to Windows and breaks the logic of HEVC resrtriction bit, which should be applied on HP hardware only. You need Secure Boot Off and Fast Startup Off, but Testsign mode not needed! The solution tested on Win10/11 on certain HP laptops. So:
 
 1. Download minimal "Win boot only" Opencore 1.0.7 configuration from here or create your own config with OpenCorePkg
 
@@ -18,7 +22,7 @@ I found, that you can enable HEVC hardware support without ACPI table override, 
 
 5. Finally check HEVC HW decoding with 4K-8K hevc video file, higher FPS also recommended. You should get smooth playback with near zero CPU load and up to 30% GPU on modern laptops. To force HW HEVC in VLC: Preferences → All, Input / Codecs → Video codecs → FFmpeg → Hardware decoding → Direct3D11
 
-6. If all OK, then you can inject Opencore to your SSD primary EFI partition to make it permanent bootloader for Windows (see Notes) or leave it on USB stick to have "HEVC hardware dongle" for rare use. 
+6. If all OK, then you can inject Opencore to your SSD primary EFI partition to make it permanent bootloader for Windows (see Notes) or leave it on USB stick as "HEVC hardware dongle" for rare use. 
 
 Notes:
 
