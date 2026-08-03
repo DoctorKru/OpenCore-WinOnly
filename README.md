@@ -12,7 +12,7 @@ https://github.com/acidanthera/OpenCorePkg
 
 Just boot Windows via OpenCore bootloader and you're good to go! OpenCore send fake firmware configuration to Windows and breaks the logic of HEVC resrtriction bit, which should be applied on HP hardware only. You need Secure Boot Off and Fast Startup Off, but Testsign mode not needed! The solution tested on Win10/11 on certain HP laptops. So:
 
-1. Download minimal "Win boot only" Opencore 1.0.7 configuration from here or create your own config with OpenCorePkg
+1. Download minimal "Win boot only" Opencore configuration from here or create your own config with OpenCorePkg
 
 2. At first, put EFI folder to bootable USB stick (use Rufus etc.) and boot PC from USB (be sure, you do not have any acpitabl.dat in Windows\System32\ and hiberfil.sys in the root).
 
