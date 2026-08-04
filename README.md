@@ -7,7 +7,7 @@ Based on: https://github.com/acidanthera/OpenCorePkg/releases/tag/1.0.7
 From Reddit: 
 > *"Many modern Dell and HP laptops ship with Intel GPUs that fully support HEVC (H.265) in hardware — yet Windows reports HEVC as unsupported. Installing the Microsoft HEVC codec does nothing. Drivers are current. Linux works. Windows doesn’t. This is not a driver bug. This is intentional firmware gating, implemented via ACPI tables.."* 
 
-I found, that **you can enable HEVC hardware support without ACPI table override, at least on HP laptops**, thanks to: 
+### I found, that you can enable HEVC hardware support without ACPI table override, at least on HP laptops, thanks to: 
 
 https://github.com/acidanthera/OpenCorePkg
 
