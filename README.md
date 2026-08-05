@@ -1,6 +1,5 @@
 # OpenCore-WinOnly
-Minimal configuration of OpenCore 1.0.7 bootloader for boot the only copy of Windows 10/11. 
-No MacOS tweaks, no dual boot. The purpose is to boot Windows on top of OpenCore to tweak mainboard firmware on modern HP/Dell laptops and apply custom ACPI overrides.
+Minimal configuration of OpenCore 1.0.7 bootloader to boot the only copy of Windows 10/11. The purpose is to tweak mainboard firmware on modern HP/Dell laptops and apply custom ACPI overrides if needed.
 
 Based on: https://github.com/acidanthera/OpenCorePkg/releases/tag/1.0.7
 
