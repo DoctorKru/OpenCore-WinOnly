@@ -70,3 +70,5 @@ Use commands from above to repair boot paths in Windows and return back OC picke
   ```js        
     Shell> bcfg dump -v ← show boot options
   ```
+
+To make your Windows via Opencore entry as default in OC picker (in case of 1st entry - dummy HP boot manager) move key *Down* and press *Ctrl + Enter* to save your selection in NVram. Next time you boot, OC choose desired entry automatically.
