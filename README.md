@@ -53,6 +53,7 @@ bcdedit /set {bootmgr} path \EFI\BOOT\BOOTx64.efi
 ```cmd        
 bcdedit /set {fwbootmgr} displayorder {bootmgr} /addfirst
 ```
+If later HP firmware breaks your OC setup completely, you can repair boot paths in Windows and return back OC picker by these two commands from above.
 - Reboot
 > [!NOTE]
 > The "3 reboots" effect can occure: at 1st boot you get pure Windows, at 2d boot you get Windows via Opencore and 3d boot additionally creates HP "Windows" entry in OC picker which you should ignore and press Down key to load Windows + OpenCore. The same problem can occure on very cold boot. HP firmware sometimes recreates default boot paths if you occasionally entered HP BIOS settings, even without saving changes or just open F9 boot menu. 
