@@ -18,9 +18,7 @@ Just boot Windows via OpenCore bootloader and you're good to go! OpenCore send f
 
 3. Run Msinfo32 in Windows and check strings in System Summary: System Manufacturer, Model, Baseboard Manufacturer, Bios Version etc. - they should show something like "Acidanthera", "iMac19,1" etc. The same check you can do by CPU-Z -> Mainboard tab. The lack of any HP indication means, that you have successfully booted Windows via OpenCore.
 
-4. Now, check HEVC decoding capabilities, i recommend DXVA Checker https://bluesky-soft.com/en/DXVAChecker.html as it shows HEVC profiles on the first screen.
-
-[<img title="click_to_enlarge" width="187px" src="Docs/Images/DXVAcheck_thumb.png" />](Docs/Images/DXVAcheck.png)
+4. Now, check HEVC decoding capabilities, i recommend DXVA Checker https://bluesky-soft.com/en/DXVAChecker.html as it shows HEVC profiles on the first screen:<br><br>[<img title="click_to_enlarge" width="187px" src="Docs/Images/DXVAcheck_thumb.png" />](Docs/Images/DXVAcheck.png)
 
 6. Finally check HEVC HW decoding with 4K-8K hevc video file, higher FPS also recommended. You should get smooth playback with near zero CPU load and up to 30% GPU on modern laptops. To force HW HEVC in VLC: Preferences → All, Input / Codecs → Video codecs → FFmpeg → Hardware decoding → Direct3D11
 
