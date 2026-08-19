@@ -56,7 +56,7 @@ bcdedit /set {fwbootmgr} displayorder {bootmgr} /addfirst
 Use commands from above to repair boot paths in Windows and return back OC picker in case of HP firmware breaks your OC setup completely.
 - Reboot
 > [!NOTE]
-> The "3 reboots" effect can occure: at 1st boot you get pure Windows, at 2d boot you get Windows via Opencore and 3d boot additionally creates HP "Windows" entry in OC picker which you should ignore and press Down key to load Windows + OpenCore. The same problem can occure on very cold boot. HP Insyde BIOS sometimes recreates default boot paths if you occasionally entered HP BIOS settings, even without saving changes or just open F9 boot menu. 
+> The "3 reboots" effect can occure: at 1st boot you get pure Windows, at 2d boot you get Windows via Opencore and 3d boot additionally creates HP "Windows" entry in OC picker which you should ignore and press Down key to load Windows + OpenCore. The same problem can occure on very cold boot. HP Insyde BIOS sometimes recreates default boot paths if you occasionally entered HP BIOS settings, even without saving changes or just open F9 boot menu. To make your "Windows via OpenCore" as default entry in OC picker (in case of 1st entry - dummy HP boot manager) move key *Down* and press *Ctrl + Enter* to save your selection in NVram. Next time you boot, OC choose desired entry automatically. [Details 1#issue](https://github.com/DoctorKru/OpenCore-WinOnly/issues/1#issue-5059608356)
 
 > [!TIP]
 > To clear NVRAM in OC picker when needed press ***Space → Clear NVram***.
@@ -70,5 +70,3 @@ Use commands from above to repair boot paths in Windows and return back OC picke
   ```js        
     Shell> bcfg dump -v ← show boot options
   ```
-
-To make your Windows via Opencore entry as default in OC picker (in case of 1st entry - dummy HP boot manager) move key *Down* and press *Ctrl + Enter* to save your selection in NVram. Next time you boot, OC choose desired entry automatically. [Details 1#issue](https://github.com/DoctorKru/OpenCore-WinOnly/issues/1#issue-5059608356)
