@@ -20,7 +20,7 @@ Just boot Windows via OpenCore bootloader and you're good to go! OpenCore send f
 
 4. Now, check HEVC decoding capabilities, i recommend DXVA Checker https://bluesky-soft.com/en/DXVAChecker.html as it shows HEVC profiles on the first screen:<br><br>[<img title="click_to_enlarge" width="187px" src="Docs/Images/DXVAcheck_thumb.png" />](Docs/Images/DXVAcheck.png)
 
-6. Finally check HEVC HW decoding with 4K-8K hevc video file, higher FPS also recommended. You should get smooth playback with near zero CPU load and up to 30% GPU on modern laptops. To force HW HEVC in VLC: Preferences → All, Input / Codecs → Video codecs → FFmpeg → Hardware decoding → Direct3D11
+6. Finally check HEVC HW decoding with 4K-8K hevc video file, higher 60-120 FPS recommended too. You should get smooth playback with near zero CPU load and up to 30% GPU on modern laptops. To force HW HEVC in VLC: Preferences → All, Input / Codecs → Video codecs → FFmpeg → Hardware decoding → Direct3D11
 
 7. No HEVC HW decoding even after successful Windows via OpenCore boot. <br> Then, you need custom ACPI override. You can do it directly in OpenCore, which was developed by Hackintosh people who are experts in ACPI tables patching and have done everything possible to make the process more convenient. Dump ACPI tables directly in OpenCore, search for restriction bit with Intel ACPICA tools, compile your custom overrides and put "ready to go" .aml files in Opencore ACPI folder. 
 
